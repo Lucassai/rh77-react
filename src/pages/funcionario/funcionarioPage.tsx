@@ -1,7 +1,8 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import type { Funcionario, FuncionarioFormData } from "../../models/funcionario/Funcionario"
-import FuncionarioForm from "../../components/funcionarioForm/FuncionarioForm"
+import FuncionarioForm from "../../components/funcionario/FuncionarioForm"
+import FuncionarioCard from "../../components/funcionario/FuncionarioCard"
 import { funcionarioService } from "../../services/funcionarioService/FuncionarioService"
 
 const FuncionarioPage: React.FC = () => {
@@ -19,7 +20,6 @@ const FuncionarioPage: React.FC = () => {
     try {
       const data = await funcionarioService.getAll()
       setFuncionarios(data)
-      console.log(data)
     } catch (error) {
       console.error("Erro ao buscar funcionários:", error)
     }
@@ -39,7 +39,6 @@ const FuncionarioPage: React.FC = () => {
   const criarFuncionario = async (data: FuncionarioFormData) => {
     try {
       await funcionarioService.create(data)
-      console.log(data)
       buscarFuncionarios()
       setIsDialogOpen(false)
     } catch (error) {
@@ -81,17 +80,15 @@ const FuncionarioPage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 bg-blue-50 min-h-screen">
-      <h1 className="text-2xl font-bold mb-4 text-white bg-blue-600 p-3 rounded-lg text-center shadow-md">
-        Gerenciamento de Funcionários
-      </h1>
-      <div className="flex justify-between mb-4">
+    <div className="container mx-auto p-4 bg-blue-50 min-h-screen shadow-2xl">
+      <h1 className="text-2xl font-bold mb-6 text-blue-800 text-center">Gerenciamento de Funcionários</h1>
+      <div className="flex flex-col sm:flex-row justify-between mb-6 gap-4">
         <input
           type="text"
           placeholder="Buscar por Nome, CPF ou ID"
           value={termoBusca}
           onChange={(e) => setTermoBusca(e.target.value)}
-          className="w-1/2 p-2 border rounded bg-white text-blue-800 placeholder-blue-300 border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+          className="w-full sm:w-2/3 p-2 border rounded bg-white text-blue-800 placeholder-blue-300 border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
         />
         <button
           onClick={() => {
@@ -99,14 +96,14 @@ const FuncionarioPage: React.FC = () => {
             setIsEditing(false)
             setIsDialogOpen(true)
           }}
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out shadow-md"
+          className="w-full sm:w-auto bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300 ease-in-out shadow-md"
         >
           Adicionar Funcionário
         </button>
       </div>
       {isDialogOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-blue-900 bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-blue-900 bg-opacity-50 p-4">
+          <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
             <h2 className="text-xl font-bold mb-4 text-blue-800">
               {isEditing ? "Editar Funcionário" : "Adicionar Funcionário"}
             </h2>
@@ -123,61 +120,22 @@ const FuncionarioPage: React.FC = () => {
             />
             <button
               onClick={() => setIsDialogOpen(false)}
-              className="mt-4 bg-blue-100 text-blue-800 p-2 rounded hover:bg-blue-200 transition duration-300 ease-in-out"
+              className="mt-4 w-full bg-blue-100 text-blue-800 p-2 rounded hover:bg-blue-200 transition duration-300 ease-in-out"
             >
               Cancelar
             </button>
           </div>
         </div>
       )}
-      <div className="overflow-x-auto shadow-md rounded-lg">
-        <table className="w-full border-collapse bg-white">
-          <thead>
-            <tr className="bg-blue-600 text-white">
-              <th className="border-b border-blue-200 p-2">ID</th>
-              <th className="border-b border-blue-200 p-2">Nome</th>
-              <th className="border-b border-blue-200 p-2">CPF</th>
-              <th className="border-b border-blue-200 p-2">Data de Nascimento</th>
-              <th className="border-b border-blue-200 p-2">Data de Admissão</th>
-              <th className="border-b border-blue-200 p-2">Telefone</th>
-              <th className="border-b border-blue-200 p-2">E-mail</th>
-              <th className="border-b border-blue-200 p-2">Cargo</th>
-              <th className="border-b border-blue-200 p-2">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtrarFuncionarios().map((func, index) => (
-              <tr key={func.id} className={index % 2 === 0 ? "bg-blue-50" : "bg-white"}>
-                <td className="border-b border-blue-100 p-2 text-blue-800">{func.id}</td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">{func.nome}</td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">{func.cpf}</td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">
-                  {new Date(func.dataNascimento).toLocaleDateString("pt-BR")}
-                </td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">
-                  {new Date(func.dataAdmissao).toLocaleDateString("pt-BR")}
-                </td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">{func.telefone}</td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">{func.email}</td>
-                <td className="border-b border-blue-100 p-2 text-blue-800">{func.cargo?.nome ?? null}</td>
-                <td className="border-b border-blue-100 p-2 flex gap-2">
-                  <button
-                    onClick={() => buscarFuncionarioPorId(func.id)}
-                    className="bg-blue-100 text-blue-600 p-1 rounded hover:bg-blue-200 transition duration-300 ease-in-out"
-                  >
-                    Editar
-                  </button>
-                  <button
-                    onClick={() => deletarFuncionario(func.id)}
-                    className="bg-red-100 text-red-600 p-1 rounded hover:bg-red-200 transition duration-300 ease-in-out"
-                  >
-                    Excluir
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filtrarFuncionarios().map((funcionario) => (
+          <FuncionarioCard
+            key={funcionario.id}
+            funcionario={funcionario}
+            onEdit={buscarFuncionarioPorId}
+            onDelete={deletarFuncionario}
+          />
+        ))}
       </div>
     </div>
   )

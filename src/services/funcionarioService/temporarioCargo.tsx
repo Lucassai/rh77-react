@@ -1,5 +1,5 @@
 import axios from "axios"
-import type { Cargo } from "../models/funcionario/Funcionario"
+import type { Cargo } from "../../models/funcionario/Funcionario"
 
 const API_URL = "http://localhost:8080/cargos"
 
