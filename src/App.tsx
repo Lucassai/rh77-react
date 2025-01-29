@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ListarCargos from "./components/cargos/listacargos/ListarCargos";
 import "./App.css";
+import ListarCargos from "./components/cargos/listacargos/ListarCargos";
+
 function App() {
   return (
     <>
