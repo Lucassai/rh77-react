@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+# aqui teria um .env pro caso de consumirmos um backend no render ou outro local.
 node_modules
 dist
 dist-ssr
