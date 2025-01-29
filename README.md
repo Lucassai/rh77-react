@@ -6,7 +6,7 @@
   
 </div>
 
-<h1 align="center" style="font-weight: bold;">Projeto FrontEnd RH 77 💻</h1>
+<h1 align="center" style="font-weight: bold;">Projeto Front-End RH 77 💻</h1>
 
 <div align="center">
   
