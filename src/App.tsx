@@ -1,8 +1,7 @@
 import './App.css'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/NavBar'
-//import de cargos
-import Funcionario from './models/Funcionario'
+import FuncionarioPage from './pages/funcionario/funcionarioPage'
 import { BrowserRouter, Routes, Route } from 'react-router'
 
 function App() {
@@ -10,11 +9,10 @@ function App() {
     <BrowserRouter>
       <Navbar/>
         <Routes>
-          <Route path='/' element={<Funcionario />} />
+          <Route path='/' element={<FuncionarioPage />} />
         </Routes>
       <Footer/>
     </BrowserRouter>
   )
 }
-
 export default App;
