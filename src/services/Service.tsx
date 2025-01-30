@@ -15,18 +15,20 @@ export const buscar = async (url: string, setDados: Function) => {
 export const cadastrar = async (
   url: string,
   dados: Object,
-  setDados: Function
+  setDados?: Function
 ) => {
   const resposta = await api.post(url, dados);
+  if(setDados)
   setDados(resposta.data);
 };
 
 export const atualizar = async (
   url: string,
   dados: Object,
-  setDados: Function
+  setDados?: Function
 ) => {
   const resposta = await api.put(url, dados);
+  if(setDados)
   setDados(resposta.data);
 };
 
