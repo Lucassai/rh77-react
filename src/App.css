@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-color: #d5f6e7;
+}
+
+@theme {
+  --color-ice: #d5f6e7;
+  --color-dark-ice: #5be4aa;
+  --color-shadow-ice: #1a2e35;
+}

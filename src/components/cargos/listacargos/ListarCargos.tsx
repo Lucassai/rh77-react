@@ -25,9 +25,9 @@ function ListarCargos() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="w-screen min-h-screen flex items-center justify-center bg-indigo-400">
-        <div className="m-15 p-6 w-3/4 bg-indigo-900 rounded-2xl shadow-lg text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+      <div className="w-screen min-h-screen flex items-center justify-center bg-ice">
+        <div className="m-15 p-6 w-3/4 bg-dark-ice rounded-2xl shadow-lg text-center">
+          <h1 className="text-2xl font-bold text-shadow-ice mb-4">
             Lista de Cargos
           </h1>
           <ul className="space-y-2">
