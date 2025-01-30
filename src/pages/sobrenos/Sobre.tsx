@@ -97,7 +97,7 @@ const Sobre = () => {
           {images.map((img, index) => (
             <div key={index} className="px-2">
               <a href={img.link} target="_blank" rel="noopener noreferrer">
-                <img src={img.src} alt={`Slide ${index + 1}`} className="w-full h-40 object-cover rounded-lg" />
+                <img src={img.src} alt={`Slide ${index + 1}`} className="w-full h-65 object-cover rounded-full" />
               </a>
             </div>
           ))}

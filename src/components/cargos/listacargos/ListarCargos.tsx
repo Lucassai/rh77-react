@@ -6,7 +6,6 @@ import {
   deletar,
 } from "../../../services/Service";
 import { Pencil, Trash } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
 
 interface Cargo {
   id?: number;
@@ -45,17 +44,25 @@ function ListarCargos() {
   async function salvarCargo() {
     if (!cargoSelecionado) return;
     try {
+      let novoCargo:any;
       if (cargoSelecionado.id) {
-        await atualizar(
-          `/cargos/${cargoSelecionado.id}`,
-          cargoSelecionado,
-          setCargos
+        // Atualiza o cargo e retorna o objeto atualizado
+        novoCargo = await atualizar(`/cargos`, cargoSelecionado);
+        // Atualiza o estado substituindo o cargo antigo pelo novo
+        setCargos(prevCargos =>
+          prevCargos.map(cargo => 
+            cargo.id === novoCargo?.id ? novoCargo : cargo
+          )
         );
       } else {
-        await cadastrar("/cargos", cargoSelecionado, setCargos);
+        // Cadastra o novo cargo e retorna o objeto criado
+        novoCargo = await cadastrar("/cargos", cargoSelecionado,setCargos);
+        // Adiciona o novo cargo ao estado existente
+        setCargos(prevCargos => [...prevCargos, novoCargo]);
       }
-      fetchCargos();
       fecharModal();
+      // Opcional: Recarrega a lista para garantir sincronia com o servidor
+      fetchCargos(); // Descomente se necessário
     } catch (error) {
       console.error("Erro ao salvar cargo:", error);
       alert("Erro ao salvar cargo.");

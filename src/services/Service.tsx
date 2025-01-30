@@ -24,9 +24,10 @@ export const cadastrar = async (
 export const atualizar = async (
   url: string,
   dados: Object,
-  setDados: Function
+  setDados?: Function
 ) => {
   const resposta = await api.put(url, dados);
+  if(setDados)
   setDados(resposta.data);
 };
 
