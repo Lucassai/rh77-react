@@ -67,7 +67,7 @@ Como fizemos esse projeto pela ONG Generation Brasil, nós precisávamos atender
      ```sh
      🧶 dev
      ```
-   - O projeto estará disponível no navegador no endereço `http://localhost:3000`.
+   - O projeto estará disponível no navegador no endereço `http://localhost:5173`.
 
 5. **Configuração adicional**
  ```sh
