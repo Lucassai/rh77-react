@@ -3,7 +3,7 @@ import { Person } from "@phosphor-icons/react";
 function Home() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-ice p-6">
+      <div className="flex flex-col items-center justify-center min-h-screen gradienteA p-6">
         {/* Título */}
         <h1 className="text-4xl font-bold text-shadow-ice mb-6">
           Recursos Humanos 77

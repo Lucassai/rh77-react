@@ -12,7 +12,7 @@ import { isAxiosError } from "axios";
 
 const FuncionarioPage: React.FC = () => {
   const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
-  const [termoBusca, setTermoBusca] = useState("");
+  const [termoBusca, setTermoBusca] = useState<string>("");
   const [funcionarioSelecionado, setFuncionarioSelecionado] =
     useState<Funcionario | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -143,7 +143,7 @@ const FuncionarioPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-blue-50 min-h-screen shadow-2xl">
+    <div className="container m-2 mx-auto p-4 bg-ice min-h-screen shadow-2xl rounded-2xl">
       <h1 className="text-2xl font-bold mb-6 text-shadow-ice text-center">
         Gerenciamento de Funcionários
       </h1>

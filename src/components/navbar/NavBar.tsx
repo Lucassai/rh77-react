@@ -4,7 +4,7 @@ import { FinnTheHuman } from "@phosphor-icons/react";
 function Navbar() {
   return (
     <>
-      <div className="w-full flex justify-center py-4 bg-dark-ice text-shadow-ice">
+      <div className="w-full flex justify-center py-4 gradiente drop-shadow-lg text-shadow-ice text-center">
         <div className="container flex justify-between text-lg">
           <Link to={"/"} className="hover:text-ice">
             RH 77
