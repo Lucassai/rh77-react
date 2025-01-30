@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FinnTheHuman } from "@phosphor-icons/react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const Sobre = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -11,27 +8,6 @@ const Sobre = () => {
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    nextArrow: <div style={{ color: "#d5f6e7", fontSize: "40px" }}>▶</div>,
-    prevArrow: <div style={{ color: "#1E88E5", fontSize: "40px" }}>◀</div>
-  };
-
-  const images = [
-    { src: "https://media.licdn.com/dms/image/v2/D4D03AQFjWcNyZu2Ptg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719620770969?e=1743638400&v=beta&t=TkPfs7_n5gGAVjFBBEHTix6uUAa1aVLMqLk-5_1s7z0", link: "https://www.linkedin.com/in/ivanj%C3%BAlio/" },
-    { src: "https://media.licdn.com/dms/image/v2/D4D03AQETZvl8qd4Dyg/profile-displayphoto-shrink_800_800/B4DZQfUeEyHcAc-/0/1735692248536?e=1743638400&v=beta&t=G8wBsIqockdUyoIf_p09bQsP56ZAWLXYq7J8oQFmuqM", link: "https://www.linkedin.com/in/nina-raquel/" },
-    { src: "https://media.licdn.com/dms/image/v2/D4D03AQGNuaxckRDF7Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730742826051?e=1743638400&v=beta&t=OEz6bMOclSK3-my6MjeIFoOdt5dcR_8m6Q_6aSdu_hk", link: "https://www.linkedin.com/in/matheus-queiroz/" },
-    { src: "https://media.licdn.com/dms/image/v2/D4D03AQEkBH9bPMiTKw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729541301387?e=1743638400&v=beta&t=qXKzsccrOWR6kEaqt_g-pcOy39RU19i5VALw0aiSv-Q", link: "https://www.linkedin.com/in/lucas-vinicius-mendes/" },
-    { src: "https://media.licdn.com/dms/image/v2/D4D03AQHhaZoYRKxtsg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729899450213?e=1743638400&v=beta&t=IQKOLXKYW-dgsyhahqEpHNtViFOnW2zfsPOA8NClOq4", link: "https://www.linkedin.com/in/jaqueline-valle/" },
-    { src: "https://media.licdn.com/dms/image/v2/D4D03AQFLw_w4gY3BXQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724398107767?e=1743638400&v=beta&t=QIed63iRmZxdOK0Dq-KZiN7ESOIK9QQg8uQ9FN14Qnc", link: "https://www.linkedin.com/in/vitoria-manuela/" },
-  ];
 
   return (
     <div className={`flex flex-col items-center justify-center min-h-screen p-6 bg-ice relative ${isPopupOpen ? 'backdrop-blur-lg' : ''}`}>
@@ -91,18 +67,6 @@ const Sobre = () => {
           </div>
         </div>
       )}
-
-      <div className="w-full max-w-4xl mt-10">
-        <Slider {...settings}>
-          {images.map((img, index) => (
-            <div key={index} className="px-2">
-              <a href={img.link} target="_blank" rel="noopener noreferrer">
-                <img src={img.src} alt={`Slide ${index + 1}`} className="w-full h-40 object-cover rounded-lg" />
-              </a>
-            </div>
-          ))}
-        </Slider>
-      </div>
     </div>
   );
 };
