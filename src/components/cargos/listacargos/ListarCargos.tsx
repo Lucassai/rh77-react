@@ -56,7 +56,7 @@ function ListarCargos() {
         );
       } else {
         // Cadastra o novo cargo e retorna o objeto criado
-        novoCargo = await cadastrar("/cargos", cargoSelecionado,setCargos);
+        novoCargo = await cadastrar("/cargos", cargoSelecionado);
         // Adiciona o novo cargo ao estado existente
         setCargos(prevCargos => [...prevCargos, novoCargo]);
       }
@@ -95,16 +95,16 @@ function ListarCargos() {
             </button>
           </div>
           <ul className="space-y-2">
-            {cargos.map((cargo) => (
+            {cargos?.map((cargo) => (
               <li
-                key={cargo.id}
+                key={cargo?.id}
                 className="flex justify-between items-center p-3 bg-gray-100 rounded-lg shadow-sm"
               >
                 <span className="text-gray-700 font-medium w-1/3">
-                  {cargo.nome}
+                  {cargo?.nome}
                 </span>
                 <span className="text-green-600 font-semibold flex-1 text-center">
-                  {cargo.salarioBase.toLocaleString("pt-BR", {
+                  {cargo?.salarioBase.toLocaleString("pt-BR", {
                     style: "currency",
                     currency: "BRL",
                   })}

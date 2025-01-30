@@ -75,6 +75,18 @@ const Sobre = () => {
         Entre em Contato
       </button>
 
+      <div className="w-full max-w-4xl mt-10">
+        <Slider {...settings}>
+          {images.map((img, index) => (
+            <div key={index} className="px-2">
+              <a href={img.link} target="_blank" rel="noopener noreferrer">
+                <img src={img.src} alt={`Slide ${index + 1}`} className="w-full h-65 object-cover rounded-full" />
+              </a>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
       {isPopupOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-white/20 backdrop-blur-xs p-5 rounded-lg " onClick={togglePopup}>
           <div className="bg-gray-200 p-6 text-center rounded-lg shadow-lg relative" onClick={(e) => e.stopPropagation()}>
@@ -91,18 +103,6 @@ const Sobre = () => {
           </div>
         </div>
       )}
-
-      <div className="w-full max-w-4xl mt-10">
-        <Slider {...settings}>
-          {images.map((img, index) => (
-            <div key={index} className="px-2">
-              <a href={img.link} target="_blank" rel="noopener noreferrer">
-                <img src={img.src} alt={`Slide ${index + 1}`} className="w-full h-65 object-cover rounded-full" />
-              </a>
-            </div>
-          ))}
-        </Slider>
-      </div>
     </div>
   );
 };
