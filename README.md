@@ -26,6 +26,7 @@
 <h2 id="about">📌 Sobre</h2>
 
 O Projeto RH foi desenvolvido com o objetivo de criar um sistema de gerenciamento de recursos humanos eficiente e intuitivo. Utilizando tecnologias modernas, como **React**, **Tailwind CSS** e **React Router DOM**, a aplicação oferece uma interface amigável e responsiva, facilitando o acesso e a manipulação de dados importantes para a administração de temas e produtos.
+Utilizamos o TypeScript com Vite, com suporte ao Tailwind Css, Axios, Phosphor Icons, React Router, React Loader Spinner, React Icons, Framer Motion, e na escolha de paleta de cores utilizamos Freepik e Colorzilla, 
 
 Como fizemos esse projeto pela ONG Generation Brasil, nós precisávamos atender alguns requisitos, quais foram eles: 
 
@@ -39,7 +40,12 @@ Como fizemos esse projeto pela ONG Generation Brasil, nós precisávamos atender
 
 <h2 id="started">🚀Primeiros Passos</h2>
 
-1. **Clone o repositório**
+1. **Requisitos**
+   
+ - [🟢 Node.js](https://nodejs.org/)
+ - [🧶 Yarn](https://yarnpkg.com/)
+   
+2. **Clone o repositório**
    - Abra o terminal e execute o comando:
      ```sh
      git clone https://github.com/grupo2generation77/rh77-react.git
@@ -49,28 +55,60 @@ Como fizemos esse projeto pela ONG Generation Brasil, nós precisávamos atender
      cd rh77-react
      ```
 
-2. **Instale as dependências**
+3. **Instale as dependências**
    - Certifique-se de ter o Node.js e npm (Node Package Manager) instalados em sua máquina.
    - Instale as dependências do projeto executando:
      ```sh
-     npm install
+     yarn
      ```
 
-3. **Execute o projeto**
+4. **Execute o projeto**
    - Inicie o servidor de desenvolvimento:
      ```sh
-     npm start
+     🧶 dev
      ```
    - O projeto estará disponível no navegador no endereço `http://localhost:3000`.
 
-4. **Configuração adicional**
+5. **Configuração adicional**
+ ```sh
+🧶 add axios
+🧶 add phosphor-icons
+🧶 add react-router-dom
+🧶 add react-loader-spinner
+🧶 add @types/react-icons
+🧶 add framer-motion
+```
    - Verifique se há algum arquivo de configuração específico (como `.env`) que precisa ser configurado para o ambiente local. Esse arquivo geralmente contém variáveis de ambiente necessárias para a aplicação.
 
-5. **Verifique as rotas**
-   - Certifique-se de que todas as rotas estão configuradas corretamente e acessíveis através da aplicação React Router DOM.
+6. **Verifique as rotas**
+ - Certifique-se de que todas as rotas estão configuradas corretamente e acessíveis através da aplicação React Router DOM.
+     
+7. **Configurando Tailwind CSS**
+  - Instale o 🎨 Tailwind CSS e seu plugin para ⚡ Vite:
 
-6. **Teste a aplicação**
-   - Navegue pelo projeto para garantir que todas as funcionalidades estão funcionando conforme esperado.
+```sh
+📦 install tailwindcss @tailwindcss/vite
+```
+
+- Edite o arquivo **vite.config.ts** para incluir o plugin:
+
+```ts
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+- No arquivo **index.css**, importe o 🎨 Tailwind:
+
+```css
+@import "tailwindcss";
+```
+   
+8. **Teste a aplicação**
+- Navegue pelo projeto para garantir que todas as funcionalidades estão funcionando conforme esperado.
 
 Seguindo esses passos, você conseguirá executar o projeto localmente. Se tiver alguma dúvida ou encontrar algum problema, me avise! Estou aqui para 
 
