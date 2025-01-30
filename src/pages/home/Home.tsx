@@ -1,4 +1,5 @@
 import { Person } from "@phosphor-icons/react";
+
 function Home() {
   return (
     <>
