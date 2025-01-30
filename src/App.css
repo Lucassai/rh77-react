@@ -5,12 +5,11 @@
 }
 
 body {
-  background-color: #134074;
+  background-color: #d5f6e7;
 }
 
 @theme {
   --color-ice: #d5f6e7;
   --color-dark-ice: #5be4aa;
   --color-shadow-ice: #1a2e35;
-  --color-jaque-one: #134074;
 }

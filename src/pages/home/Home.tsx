@@ -1,5 +1,4 @@
-import React from "react";
-import { AppleLogo, LinkedinLogo, Person } from "@phosphor-icons/react";
+import { Person } from "@phosphor-icons/react";
 function Home() {
   return (
     <>
@@ -19,62 +18,49 @@ function Home() {
         </div>
 
         {/* Ícones */}
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 text-center">
           <a
-            href="https://www.linkedin.com/school/generationbrasil"
+            href="https://www.linkedin.com/in/ivanj%C3%BAlio/"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-shawdow-ice hover:text-red-800 transition-transform transform hover:scale-110"
+            className="text-shadow-ice hover:text-orange-400 transition-transform transform hover:scale-120"
           >
-            <Person size={80} weight="bold" />
+            <Person size={80} /> Ivan
           </a>
           <a
-            href="https://www.linkedin.com/school/generationbrasil"
+            href="https://www.linkedin.com/in/jaqueline-valle/"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-shawdow-ice hover:text-orange-400 transition-transform transform hover:scale-110"
+            className="text-shawdow-ice hover:text-yellow-300 transition-transform transform hover:scale-120"
           >
-            <Person size={80} weight="bold" />
+            <Person size={80} /> Jaqueline
           </a>
           <a
-            href="https://www.linkedin.com/school/generationbrasil"
+            href="https://www.linkedin.com/in/lucas-vinicius-mendes/"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-shawdow-ice hover:text-yellow-300 transition-transform transform hover:scale-110"
-          >
-            <Person size={80} weight="bold" />
-          </a>
-          <a
-            href="https://www.linkedin.com/school/generationbrasil"
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-shawdow-ice hover:text-green-500 transition-transform transform hover:scale-110"
           >
-            <Person size={80} weight="bold" />
+            <Person size={80} /> Lucas
           </a>
           <a
-            href="https://www.linkedin.com/school/generationbrasil"
+            href="https://www.linkedin.com/in/matheus-queiroz/"
             target="_blank"
-            rel="noopener noreferrer"
             className="text-shawdow-ice hover:text-blue-600 transition-transform transform hover:scale-110"
           >
-            <Person size={80} weight="bold" />
+            <Person size={80} />
+            Matheus
           </a>
           <a
-            href="https://www.linkedin.com/school/generationbrasil"
+            href="https://www.linkedin.com/in/nina-raquel/"
             target="_blank"
-            rel="noopener noreferrer"
             className="text-shawdow-ice hover:text-indigo-700 transition-transform transform hover:scale-110"
           >
-            <Person size={80} weight="bold" />
+            <Person size={80} /> Nina
           </a>
           <a
-            href="https://www.linkedin.com/school/generationbrasil"
+            href="https://www.linkedin.com/in/vitoria-manuela/"
             target="_blank"
-            rel="noopener noreferrer"
             className="text-shawdow-ice hover:text-purple-700 transition-transform transform hover:scale-110"
           >
-            <Person size={80} weight="bold" />
+            <Person size={80} /> Vitória
           </a>
         </div>
       </div>

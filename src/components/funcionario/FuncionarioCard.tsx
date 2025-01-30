@@ -1,16 +1,22 @@
-import type React from "react"
-import type { Funcionario } from "../../models/funcionario/Funcionario"
+import type React from "react";
+import Funcionario from "../../models/funcionario/Funcionario";
 
 interface FuncionarioCardProps {
-  funcionario: Funcionario
-  onEdit: (id: number) => void
-  onDelete: (id: number) => void
+  funcionario: Funcionario;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
-const FuncionarioCard: React.FC<FuncionarioCardProps> = ({ funcionario, onEdit, onDelete }) => {
+const FuncionarioCard: React.FC<FuncionarioCardProps> = ({
+  funcionario,
+  onEdit,
+  onDelete,
+}) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-      <h3 className="text-lg font-semibold text-blue-800 mb-2">{funcionario.nome}</h3>
+    <div className="bg-ice rounded-lg shadow-md p-4 mb-4">
+      <h3 className="text-lg font-semibold text-shadow-ice mb-2">
+        {funcionario.nome}
+      </h3>
       <div className="grid grid-cols-2 gap-2 text-sm">
         <div>
           <p className="font-medium">ID:</p>
@@ -22,11 +28,15 @@ const FuncionarioCard: React.FC<FuncionarioCardProps> = ({ funcionario, onEdit, 
         </div>
         <div>
           <p className="font-medium">Data de Nascimento:</p>
-          <p>{new Date(funcionario.dataNascimento).toLocaleDateString("pt-BR")}</p>
+          <p>
+            {new Date(funcionario.dataNascimento).toLocaleDateString("pt-BR")}
+          </p>
         </div>
         <div>
           <p className="font-medium">Data de Admissão:</p>
-          <p>{new Date(funcionario.dataAdmissao).toLocaleDateString("pt-BR")}</p>
+          <p>
+            {new Date(funcionario.dataAdmissao).toLocaleDateString("pt-BR")}
+          </p>
         </div>
         <div>
           <p className="font-medium">Telefone:</p>
@@ -56,8 +66,7 @@ const FuncionarioCard: React.FC<FuncionarioCardProps> = ({ funcionario, onEdit, 
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FuncionarioCard
-
+export default FuncionarioCard;
