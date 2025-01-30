@@ -26,7 +26,7 @@
 <h2 id="about">📌 Sobre</h2>
 
 O Projeto RH foi desenvolvido com o objetivo de criar um sistema de gerenciamento de recursos humanos eficiente e intuitivo. Utilizando tecnologias modernas, como **React**, **Tailwind CSS** e **React Router DOM**, a aplicação oferece uma interface amigável e responsiva, facilitando o acesso e a manipulação de dados importantes para a administração de temas e produtos.
-Utilizamos o TypeScript com Vite, com suporte ao Tailwind Css, Axios, Phosphor Icons, React Router, React Loader Spinner, React Icons, Framer Motion, e na escolha de paleta de cores utilizamos Freepik e Colorzilla, 
+Utilizamos o TypeScript com Vite, com suporte ao Tailwind Css, Axios, Phosphor Icons, React Router, React Loader Spinner, React Icons, Framer Motion, e na escolha de paleta de cores utilizamos Freepik e Colorzilla, para o carrocel de imagens utilizamos o React-Slick.
 
 Como fizemos esse projeto pela ONG Generation Brasil, nós precisávamos atender alguns requisitos, quais foram eles: 
 
