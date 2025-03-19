@@ -1,5 +1,5 @@
 import type React from "react";
-import {Funcionario} from "../../models/funcionario/Funcionario";
+import Funcionario from "../../models/funcionario/Funcionario";
 
 interface FuncionarioCardProps {
   funcionario: Funcionario;
