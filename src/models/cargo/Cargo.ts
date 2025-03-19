@@ -1,4 +1,4 @@
-import Funcionario from "../Funcionario";
+import Funcionario from "../funcionario/Funcionario";
 
 export default interface Cargo {
   id: number;

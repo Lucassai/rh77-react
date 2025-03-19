@@ -1,14 +1,11 @@
 import type React from "react";
 import { useState, useEffect } from "react";
-import type {
-  Funcionario,
-  FuncionarioFormData,
-} from "../../models/funcionario/Funcionario";
+import type Funcionario from "../../models/funcionario/Funcionario";
+import type { FuncionarioFormData } from "../../models/funcionario/Funcionario";
 import FuncionarioForm from "../../components/funcionario/FuncionarioForm";
 import FuncionarioCard from "../../components/funcionario/FuncionarioCard";
 import { funcionarioService } from "../../services/funcionarioService/FuncionarioService";
 import { isAxiosError } from "axios";
-
 
 const FuncionarioPage: React.FC = () => {
   const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
@@ -52,13 +49,13 @@ const FuncionarioPage: React.FC = () => {
     } catch (error) {
       if (isAxiosError(error)) {
         const errorMap: Record<string, string> = {};
-        
+
         // Tratamento específico para erro de CPF duplicado
         if (error.response?.status === 500 && error.response.data.message) {
           const message: string = error.response.data.message;
-          
+
           // Verifica se é erro de constraint do CPF
-          if (message.includes('Duplicate entry')) {
+          if (message.includes("Duplicate entry")) {
             errorMap.cpf = "CPF já está em uso";
           }
         }
@@ -73,14 +70,15 @@ const FuncionarioPage: React.FC = () => {
 
         // Tratamento genérico para outros erros
         if (Object.keys(errorMap).length === 0) {
-          errorMap.general = "Erro ao salvar funcionário. Tente novamente mais tarde.";
+          errorMap.general =
+            "Erro ao salvar funcionário. Tente novamente mais tarde.";
         }
 
         setFormErrors(errorMap);
       }
     }
   };
-  
+
   const atualizarFuncionario = async (data: FuncionarioFormData) => {
     if (!funcionarioSelecionado) return;
     try {
@@ -91,13 +89,13 @@ const FuncionarioPage: React.FC = () => {
     } catch (error) {
       if (isAxiosError(error)) {
         const errorMap: Record<string, string> = {};
-        
+
         // Tratamento específico para erro de CPF duplicado
         if (error.response?.status === 500 && error.response.data.message) {
           const message: string = error.response.data.message;
-          
+
           // Verifica se é erro de constraint do CPF
-          if (message.includes('Duplicate entry')) {
+          if (message.includes("Duplicate entry")) {
             errorMap.cpf = "CPF já está em uso";
           }
         }
@@ -112,7 +110,8 @@ const FuncionarioPage: React.FC = () => {
 
         // Tratamento genérico para outros erros
         if (Object.keys(errorMap).length === 0) {
-          errorMap.general = "Erro ao salvar funcionário. Tente novamente mais tarde.";
+          errorMap.general =
+            "Erro ao salvar funcionário. Tente novamente mais tarde.";
         }
 
         setFormErrors(errorMap);
@@ -178,7 +177,7 @@ const FuncionarioPage: React.FC = () => {
                 funcionarioSelecionado
                   ? {
                       ...funcionarioSelecionado,
-                      cargo: funcionarioSelecionado?.cargo?.id ?? 0
+                      cargo: funcionarioSelecionado?.cargo?.id ?? 0,
                     }
                   : undefined
               }
@@ -186,9 +185,11 @@ const FuncionarioPage: React.FC = () => {
               errors={formErrors}
             />
             <button
-              onClick={() => {setIsDialogOpen(false);setFormErrors({});}}
+              onClick={() => {
+                setIsDialogOpen(false);
+                setFormErrors({});
+              }}
               className="mt-4 w-full bg-blue-100 text-blue-800 p-2 rounded hover:bg-blue-200 transition duration-300 ease-in-out"
-              
             >
               Cancelar
             </button>
